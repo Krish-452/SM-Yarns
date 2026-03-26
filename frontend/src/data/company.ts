@@ -54,7 +54,7 @@ export const whyUs = [
 ];
 
 export const logisticsCities = [
-  'Surat', 'Mumbai', 'Ahmedabad', 'Ludhiana', 'Tirupur', 'Delhi NCR',
+  'Ludhiana', 'Mumbai', 'Ahmedabad', 'Tirupur', 'Delhi NCR',
   'Kolkata', 'Panipat', 'Bhilwara', 'Indore', 'Coimbatore', 'Erode',
 ];
 

@@ -46,7 +46,7 @@ function autoReplyTemplate({ name }) {
       <p style="color:#666;font-size:15px;line-height:1.7;margin-top:24px;">Best regards,<br><strong style="color:#333;">S.M. Yarns Team</strong></p>
     </td></tr>
     <tr><td style="background:#f5f5f5;padding:20px 40px;text-align:center;">
-      <p style="margin:0;color:#999;font-size:12px;">S.M. Yarns | Surat, Gujarat, India</p>
+      <p style="margin:0;color:#999;font-size:12px;">S.M. Yarns | Ludhiana, Punjab, India</p>
     </td></tr>
   </table>
 </body></html>`;

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 
 @layer base {
   * {
@@ -18,7 +18,7 @@
   }
 
   body {
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
     background-color: #0A0A0A;
     color: #FAFAFA;
     overflow-x: hidden;
@@ -33,13 +33,16 @@
   ::-webkit-scrollbar {
     width: 6px;
   }
+
   ::-webkit-scrollbar-track {
     background: #0A0A0A;
   }
+
   ::-webkit-scrollbar-thumb {
     background: #B91C1C;
     border-radius: 3px;
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background: #DC2626;
   }
@@ -57,22 +60,20 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-semibold
-           rounded-full text-[15px] tracking-wide transition-all duration-300
-           hover:bg-primary-bright hover:-translate-y-0.5 border-none cursor-pointer;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-full text-[15px] tracking-wide transition-all duration-300 hover:bg-primary-bright hover:-translate-y-0.5 border-none cursor-pointer;
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
     box-shadow: 0 4px 20px rgba(185, 28, 28, 0);
   }
+
   .btn-primary:hover {
     box-shadow: 0 12px 35px rgba(185, 28, 28, 0.3);
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-8 py-4 bg-transparent text-white font-medium
-           rounded-full text-[15px] tracking-wide transition-all duration-300
-           border border-white/20 hover:border-primary hover:text-primary-bright cursor-pointer;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-transparent text-white font-medium rounded-full text-[15px] tracking-wide transition-all duration-300 border border-white/20 hover:border-primary hover:text-primary-bright cursor-pointer;
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
   }
+
   .btn-secondary:hover {
     background: rgba(185, 28, 28, 0.05);
   }
@@ -80,6 +81,7 @@
   .glass-card {
     @apply bg-dark-card rounded-2xl border border-white/5 transition-all duration-500;
   }
+
   .glass-card:hover {
     @apply border-primary/20;
     transform: translateY(-8px);
@@ -87,9 +89,9 @@
   }
 
   .section-label {
-    @apply inline-flex items-center gap-3 text-[13px] font-semibold text-primary-bright
-           uppercase tracking-[2px] mb-4;
+    @apply inline-flex items-center gap-3 text-[13px] font-semibold text-primary-bright uppercase tracking-[2px] mb-4;
   }
+
   .section-label::before,
   .section-label::after {
     content: '';

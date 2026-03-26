@@ -1,10 +1,12 @@
 import HeroSection from '@/components/sections/HeroSection';
-import StatsSection from '@/components/sections/StatsSection';
-import Marquee from '@/components/sections/Marquee';
-import ProductsSection from '@/components/sections/ProductsSection';
-import ApplicationsSection from '@/components/sections/ApplicationsSection';
-import WhyUsSection from '@/components/sections/WhyUsSection';
-import CTASection from '@/components/sections/CTASection';
+import dynamic from 'next/dynamic';
+
+const StatsSection = dynamic(() => import('@/components/sections/StatsSection'));
+const Marquee = dynamic(() => import('@/components/sections/Marquee'));
+const ProductsSection = dynamic(() => import('@/components/sections/ProductsSection'));
+const ApplicationsSection = dynamic(() => import('@/components/sections/ApplicationsSection'));
+const WhyUsSection = dynamic(() => import('@/components/sections/WhyUsSection'));
+const CTASection = dynamic(() => import('@/components/sections/CTASection'));
 
 export default function HomePage() {
   return (

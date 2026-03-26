@@ -23,7 +23,7 @@ const handleNewsletterSubscription = async (req, res) => {
         html: `<div style="font-family:sans-serif;max-width:500px;margin:0 auto;padding:40px;">
           <h2 style="color:#B91C1C;">Thank you for subscribing!</h2>
           <p style="color:#666;line-height:1.7;">You'll receive updates on our latest yarn products, industry insights, and special offers.</p>
-          <p style="color:#999;font-size:13px;margin-top:24px;">S.M. Yarns | Surat, Gujarat, India</p>
+          <p style="color:#999;font-size:13px;margin-top:24px;">S.M. Yarns | Ludhiana, Punjab, India</p>
         </div>`,
       });
     } catch (emailError) {
