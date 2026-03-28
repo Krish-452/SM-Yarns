@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+  import type { Metadata } from 'next';
 import '@/styles/globals.css';
 import { DM_Sans, Playfair_Display } from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';
@@ -6,6 +6,7 @@ import Footer from '@/components/layout/Footer';
 import WhatsAppFloat from '@/components/ui/WhatsAppFloat';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import Script from 'next/script';
 
 const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans', display: 'swap' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' });
@@ -53,6 +54,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <WhatsAppFloat />
         <Analytics />
         <SpeedInsights />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-M9H0CQ7YMW" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-M9H0CQ7YMW');
+          `}
+        </Script>
       </body>
     </html>
   );
