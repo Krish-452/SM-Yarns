@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /api/
-
-Sitemap: https://smyarns.com/sitemap.xml
