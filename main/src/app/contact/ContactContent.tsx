@@ -1,13 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Reveal from '@/components/ui/Reveal';
 import { IconPhone, IconMail, IconPin } from '@/components/ui/Icons';
 import { company } from '@/data/company';
 
 export default function ContactContent() {
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
+    <>
       <section className="pt-40 pb-20 px-6 text-center" style={{ background: 'linear-gradient(180deg, rgba(185,28,28,0.06) 0%, #0A0A0A 60%)' }}>
         <Reveal>
           <div className="section-label">Get in Touch</div>
@@ -42,6 +41,6 @@ export default function ContactContent() {
           </Reveal>
         </div>
       </section>
-    </motion.div>
+    </>
   );
 }

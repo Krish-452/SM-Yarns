@@ -2,6 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
+  experimental: {
+    turbopack: {
+      root: __dirname,
+    },
+  },
   images: {
     unoptimized: true,
   },

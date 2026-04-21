@@ -3,18 +3,23 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import Image from 'next/image';
 import logoImage from '@/components/ui/logo.jpeg';
 import { IconMenu, IconClose } from '@/components/ui/Icons';
-import { useScrollY } from '@/hooks';
 import { navLinks } from '@/data/company';
 
+const MAIN_LINKS = navLinks.filter((link) => link.href !== '/contact');
+
 export default function Navbar() {
-  const scrollY = useScrollY();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const scrolled = scrollY > 50;
+  const [scrolled, setScrolled] = useState(false);
+
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setScrolled(latest > 50);
+  });
 
   return (
     <>
@@ -32,7 +37,7 @@ export default function Navbar() {
 
           {/* Desktop Links */}
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.filter((link) => link.href !== '/contact').map((link) => (
+            {MAIN_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -83,7 +88,7 @@ export default function Navbar() {
             <button className="absolute top-5 right-6 text-white p-2" onClick={() => setMobileOpen(false)} aria-label="Close menu">
               <IconClose />
             </button>
-            {navLinks.filter((link) => link.href !== '/contact').map((link, i) => (
+            {MAIN_LINKS.map((link, i) => (
               <motion.div
                 key={link.href}
                 initial={{ opacity: 0, y: 20 }}

@@ -53,9 +53,18 @@ export const whyUs = [
   },
 ];
 
-export const logisticsCities = [
-  'Ludhiana', 'Mumbai', 'Ahmedabad', 'Tirupur', 'Delhi NCR',
-  'Kolkata', 'Panipat', 'Bhilwara', 'Indore', 'Coimbatore', 'Erode',
+export const logisticsLocations = [
+  { name: "Ludhiana", lat: 30.9000, lng: 75.8573 },
+  { name: "Mumbai", lat: 19.0760, lng: 72.8777 },
+  { name: "Ahmedabad", lat: 23.0225, lng: 72.5714 },
+  { name: "Tirupur", lat: 11.1085, lng: 77.3411 },
+  { name: "Delhi NCR", lat: 28.6139, lng: 77.2090 },
+  { name: "Kolkata", lat: 22.5726, lng: 88.3639 },
+  { name: "Panipat", lat: 29.3909, lng: 76.9635 },
+  { name: "Bhilwara", lat: 25.3470, lng: 74.6408 },
+  { name: "Indore", lat: 22.7196, lng: 75.8577 },
+  { name: "Coimbatore", lat: 11.0168, lng: 76.9558 },
+  { name: "Erode", lat: 11.3410, lng: 77.7172 },
 ];
 
 export const navLinks = [

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Reveal from '@/components/ui/Reveal';
 import StatsSection from '@/components/sections/StatsSection';
 import { ICON_MAP } from '@/components/ui/Icons';
@@ -15,7 +15,7 @@ const values = [
 
 export default function AboutContent() {
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
+    <>
       <section className="pt-40 pb-20 px-6 text-center" style={{ background: 'linear-gradient(180deg, rgba(185,28,28,0.06) 0%, #0A0A0A 60%)' }}>
         <Reveal>
           <div className="section-label">Our Story</div>
@@ -27,7 +27,18 @@ export default function AboutContent() {
       <section className="py-28 px-6 bg-[#0A0A0A]">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <Reveal direction="left">
-            <div className="w-full aspect-[4/3] rounded-3xl flex items-center justify-center text-[120px] opacity-15 border border-white/5" style={{ background: 'linear-gradient(135deg, rgba(185,28,28,0.15) 0%, #141414 100%)' }}>🧵</div>
+            <div
+              className="relative w-full aspect-[4/3] overflow-hidden"
+              style={{ WebkitMaskImage: 'radial-gradient(ellipse at center, black 100%, transparent 100%)', maskImage: 'radial-gradient(ellipse at center, black 60%, transparent 100%)' }}
+            >
+              <Image
+                src="/images/about_smyarns.png"
+                alt="About S.M. Yarns"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
           </Reveal>
           <Reveal direction="right">
             <div>
@@ -55,17 +66,19 @@ export default function AboutContent() {
         <div className="max-w-[1280px] mx-auto">
           <Reveal><div className="text-center mb-16"><div className="section-label">Our Values</div><h2 className="section-title">What <span className="text-primary-bright">Drives Us</span></h2></div></Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {values.map((v, i) => { const Icon = ICON_MAP[v.icon]; return (
-              <Reveal key={i} direction={i % 2 === 0 ? 'left' : 'right'}>
-                <div className="glass-card p-8 flex gap-5 group">
-                  <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-primary/10 flex items-center justify-center text-primary-bright group-hover:bg-primary/20 transition-all"><Icon /></div>
-                  <div><h3 className="text-lg font-semibold text-white mb-2">{v.title}</h3><p className="text-sm text-neutral-400 leading-relaxed">{v.desc}</p></div>
-                </div>
-              </Reveal>
-            ); })}
+            {values.map((v, i) => {
+              const Icon = ICON_MAP[v.icon]; return (
+                <Reveal key={v.title} direction={i % 2 === 0 ? 'left' : 'right'}>
+                  <div className="glass-card p-8 flex gap-5 group">
+                    <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-primary/10 flex items-center justify-center text-primary-bright group-hover:bg-primary/20 transition-all"><Icon /></div>
+                    <div><h3 className="text-lg font-semibold text-white mb-2">{v.title}</h3><p className="text-sm text-neutral-400 leading-relaxed">{v.desc}</p></div>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
-    </motion.div>
+    </>
   );
 }

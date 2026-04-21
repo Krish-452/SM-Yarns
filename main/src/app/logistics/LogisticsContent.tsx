@@ -1,9 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import Reveal from '@/components/ui/Reveal';
-import { logisticsCities } from '@/data/company';
 import CTASection from '@/components/sections/CTASection';
+
+const DeliveryMap = dynamic(() => import('@/components/ui/DeliveryMap'), { 
+  ssr: false,
+  loading: () => <div className="w-full h-[450px] bg-[#1a1a1a]/50 animate-pulse rounded-2xl border border-white/5" />
+});
 
 const features = [
   { icon: '📦', title: 'Reliable Dispatch', desc: 'Systematic order processing ensures accurate and timely dispatch of every consignment.' },
@@ -16,8 +21,8 @@ const features = [
 
 export default function LogisticsContent() {
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
-      <section className="pt-40 pb-20 px-6 text-center" style={{ background: 'linear-gradient(180deg, rgba(185,28,28,0.06) 0%, #0A0A0A 60%)' }}>
+    <>
+      <section className="pt-40 pb-20 px-6 text-center bg-[linear-gradient(180deg,rgba(185,28,28,0.06)_0%,#0A0A0A_60%)]">
         <Reveal>
           <div className="section-label">Delivery Network</div>
           <h1 className="font-display font-bold text-white mb-4" style={{ fontSize: 'clamp(36px, 5vw, 56px)' }}>Pan-India <span className="text-primary-bright">Logistics</span></h1>
@@ -31,27 +36,37 @@ export default function LogisticsContent() {
               <div className="text-[64px] mb-6 opacity-30">🗺️</div>
               <h3 className="font-display text-2xl font-bold text-white mb-2">Delivery Across India</h3>
               <p className="text-[15px] text-neutral-400 mb-8">We deliver to all major textile manufacturing clusters nationwide</p>
-              <div className="flex flex-wrap gap-3 justify-center">
-                {logisticsCities.map((city) => (
-                  <span key={city} className="px-5 py-2.5 bg-primary/[0.08] border border-primary/15 rounded-full text-sm text-white/80 hover:bg-primary/15 hover:text-white transition-all cursor-default">{city}</span>
-                ))}
-              </div>
+              <DeliveryMap />
             </div>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((f, i) => (
-              <Reveal key={i} delay={0.05 * (i % 3)}>
-                <div className="glass-card p-8 text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 mx-auto mb-4 flex items-center justify-center text-2xl">{f.icon}</div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{f.title}</h3>
-                  <p className="text-sm text-neutral-400 leading-relaxed">{f.desc}</p>
-                </div>
-              </Reveal>
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.1 } }
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {features.map((f) => (
+              <motion.div 
+                key={f.title} 
+                variants={{
+                  hidden: { opacity: 0, y: 40 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
+                }}
+                className="glass-card p-8 text-center"
+              >
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 mx-auto mb-4 flex items-center justify-center text-2xl">{f.icon}</div>
+                <h3 className="text-lg font-semibold text-white mb-2">{f.title}</h3>
+                <p className="text-sm text-neutral-400 leading-relaxed">{f.desc}</p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
       <CTASection />
-    </motion.div>
+    </>
   );
 }

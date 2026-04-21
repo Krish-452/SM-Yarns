@@ -13,7 +13,7 @@ export default function CTASection() {
         </h2>
         <p className="text-lg text-white/60 max-w-[560px] mx-auto mb-9">Connect with us for competitive quotes on our complete range of yarn products.</p>
         <div className="flex gap-4 justify-center flex-wrap">
-          <Link href="/contact" className="btn-primary">Get a Quote <IconArrow /></Link>
+          <Link href="/contact" className="btn-primary">Contact Us</Link>
           <Link href="/products" className="btn-secondary">View Products</Link>
         </div>
       </Reveal>

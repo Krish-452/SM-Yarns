@@ -17,7 +17,7 @@ export default function ApplicationsSection() {
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {applications.map((app, i) => (
-            <Reveal key={i} delay={0.05 * (i % 3)}>
+            <Reveal key={app.name} delay={0.05 * (i % 3)}>
               <div className="border border-white/5 rounded-2xl p-8 text-center transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/20 group" style={{ background: 'linear-gradient(135deg, rgba(185,28,28,0.05) 0%, #141414 100%)' }}>
                 <div className="w-16 h-16 rounded-[18px] bg-primary/10 flex items-center justify-center mx-auto mb-5 text-[28px] transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-105">{APP_ICONS[app.icon]}</div>
                 <h3 className="text-lg font-semibold text-white mb-2">{app.name}</h3>

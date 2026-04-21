@@ -19,7 +19,7 @@ export default function WhyUsSection() {
           {whyUs.map((item, i) => {
             const Icon = ICON_MAP[item.icon];
             return (
-              <Reveal key={i} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.05 * i}>
+              <Reveal key={item.title} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.05 * i}>
                 <div className="glass-card p-8 flex gap-5 group">
                   <div className="w-14 h-14 min-w-[56px] rounded-2xl bg-primary/10 flex items-center justify-center text-primary-bright transition-all duration-300 group-hover:bg-primary/20">
                     <Icon />
