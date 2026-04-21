@@ -13,6 +13,9 @@ const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfa
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.smyarns.in'),
+  alternates: {
+    canonical: '/',
+  },
   title: { default: 'S.M. Yarns — Premium Yarn Supplier | Ludhiana, India', template: '%s | S.M. Yarns' },
   description: 'S.M. Yarns is a trusted supplier of high-quality yarns — polyester, spandex, nylon, blended yarns — serving textile manufacturers across India since 2017. 1200+ shades, pan-India delivery.',
   keywords: ['yarn supplier India', 'polyester yarn', 'dyed yarn', 'spandex yarn', 'textile yarn', 'PV yarn', 'PC yarn', 'nylon yarn', 'S.M. Yarns', 'yarn manufacturer', 'hosiery yarn', 'weaving yarn'],
