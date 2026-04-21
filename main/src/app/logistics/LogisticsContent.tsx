@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import Reveal from '@/components/ui/Reveal';
 import CTASection from '@/components/sections/CTASection';
 
-const DeliveryMap = dynamic(() => import('@/components/ui/DeliveryMap'), { 
+const DeliveryMap = dynamic(() => import('@/components/ui/DeliveryMap'), {
   ssr: false,
   loading: () => <div className="w-full h-[450px] bg-[#1a1a1a]/50 animate-pulse rounded-2xl border border-white/5" />
 });
@@ -33,13 +33,12 @@ export default function LogisticsContent() {
         <div className="max-w-[1280px] mx-auto">
           <Reveal>
             <div className="bg-dark-card rounded-3xl p-12 border border-white/5 text-center mb-12">
-              <div className="text-[64px] mb-6 opacity-30">🗺️</div>
               <h3 className="font-display text-2xl font-bold text-white mb-2">Delivery Across India</h3>
               <p className="text-[15px] text-neutral-400 mb-8">We deliver to all major textile manufacturing clusters nationwide</p>
               <DeliveryMap />
             </div>
           </Reveal>
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -50,8 +49,8 @@ export default function LogisticsContent() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {features.map((f) => (
-              <motion.div 
-                key={f.title} 
+              <motion.div
+                key={f.title}
                 variants={{
                   hidden: { opacity: 0, y: 40 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
