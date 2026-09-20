@@ -15,7 +15,7 @@ export const company = {
 };
 
 export const stats = [
-  { value: 15000, suffix: '+', label: 'Tons Supplied', unit: 'Since 2017' },
+  { value: 16000, suffix: '+', label: 'Tons Supplied', unit: 'Since 2017' },
   { value: 1200, suffix: '+', label: 'Shades & Varieties', unit: 'Available' },
   { value: 600, suffix: '+', label: 'Customers Served', unit: 'This Year' },
   { value: 7, suffix: '+', label: 'Years of Trust', unit: 'Since 2017' },
